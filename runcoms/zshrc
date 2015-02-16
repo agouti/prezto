@@ -11,6 +11,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+<<<<<<< HEAD
 
 # tmux
 alias tma='tmux attach -d -t'
@@ -41,3 +42,5 @@ function xrandr_LENOVO
   rand_wallp
 }
 
+=======
+>>>>>>> 88aee30ae8bc969e73c9c59b29e7866b2f7b1b5e
