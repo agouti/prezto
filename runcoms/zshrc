@@ -12,3 +12,32 @@ fi
 
 # Customize to your needs...
 
+# tmux
+alias tma='tmux attach -d -t'
+alias tmn='tmux new -s $(basename $(pwd))'
+alias tml='tmux list-sessions'
+alias ll='ls -lFh'
+
+# Python virtualenv configuration
+#export WORKON_HOME=$HOME/.virtualenvs
+#export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+
+function rand_wallp
+{
+    /home/agouti/IT/bin/rand_wall.sh
+}
+
+function xrandr_HP_LE1901
+{
+  xrandr --output LVDS1 --mode 1280x800 --rate 60.16
+  xrandr --output VGA1 --mode 1440x900 --rate 74.98 --left-of LVDS1
+  rand_wallp
+}
+
+function xrandr_LENOVO
+{
+  xrandr --output LVDS1 --mode 1280x800 --rate 60.16
+  xrandr --output VGA1 --mode 1680x1050 --rate 74.89 --left-of LVDS1
+  rand_wallp
+}
+
