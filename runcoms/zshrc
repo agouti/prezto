@@ -10,6 +10,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# openvz alias
+source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/alias_vzctl"
 
 ## vim mode
 bindkey -v
@@ -21,4 +23,3 @@ bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 
 export ZSHTIMEOUT=1
-

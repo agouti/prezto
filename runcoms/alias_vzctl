@@ -1,0 +1,26 @@
+if [ -d /etc/pve ]
+then
+
+  function vzenter {
+    sudo vzctl enter $(sudo vzlist | grep $1 | awk '{print $1}')
+  }
+
+  function vzls {
+    if (( $# == 1 ))
+    then
+      sudo vzlist | grep $1
+    else
+      sudo vzlist
+    fi
+  }
+
+  function vzla {
+    if (( $# == 1 ))
+    then
+      sudo vzlist -a | grep $1
+    else
+      sudo vzlist -a
+    fi
+  }
+
+fi
