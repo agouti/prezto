@@ -22,5 +22,8 @@ bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 bindkey '\e.' insert-last-word
+bindkey '^a'  beginning-of-line
+bindkey "^e"  end-of-line
+bindkey "^k"  kill-line
 
 export ZSHTIMEOUT=1
