@@ -27,3 +27,7 @@ bindkey "^e"  end-of-line
 bindkey "^k"  kill-line
 
 export ZSHTIMEOUT=1
+
+export GOPATH=$HOME/IT/golang
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
