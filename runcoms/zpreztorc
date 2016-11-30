@@ -32,16 +32,30 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
+<<<<<<< HEAD
   'prompt' \
   'git' \
   'tmux'
+=======
+  'git' \
+  'tmux' \
+  'prompt'
+>>>>>>> bc28d2625a508c4bf23f6f1c071e02327df345eb
+
+#
+# Autosuggestions
+#
+
+# Set the query found color.
+# zstyle ':prezto:module:autosuggestions:color' found ''
 
 #
 # Editor
 #
 
 # Set the key mapping style to 'emacs' or 'vi'.
-zstyle ':prezto:module:editor' key-bindings 'emacs'
+# zstyle ':prezto:module:editor' key-bindings 'emacs'
+zstyle ':prezto:module:editor' key-bindings 'vi'
 
 # Auto convert .... to ../..
  zstyle ':prezto:module:editor' dot-expansion 'yes'
@@ -120,6 +134,7 @@ zstyle ':prezto:module:ssh:load' identities 'id_ibook'
 
 # Set syntax highlighters.
 # By default, only the main highlighter is enabled.
+<<<<<<< HEAD
  zstyle ':prezto:module:syntax-highlighting' highlighters \
    'main' \
    'brackets' \
@@ -127,6 +142,15 @@ zstyle ':prezto:module:ssh:load' identities 'id_ibook'
    'cursor' \
    'root'
 #
+=======
+zstyle ':prezto:module:syntax-highlighting' highlighters \
+  'main' \
+  'brackets' \
+  'pattern' \
+  'cursor' \
+  'root'
+
+>>>>>>> bc28d2625a508c4bf23f6f1c071e02327df345eb
 # Set syntax highlighting styles.
 # zstyle ':prezto:module:syntax-highlighting' styles \
 #   'builtin' 'bg=blue' \
@@ -138,7 +162,7 @@ zstyle ':prezto:module:ssh:load' identities 'id_ibook'
 #
 
 # Auto set the tab and window titles.
-# zstyle ':prezto:module:terminal' auto-title 'yes'
+zstyle ':prezto:module:terminal' auto-title 'yes'
 
 # Set the window title format.
 # zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
@@ -154,7 +178,7 @@ zstyle ':prezto:module:ssh:load' identities 'id_ibook'
 # zstyle ':prezto:module:tmux:auto-start' local 'yes'
 
 # Auto start a session when Zsh is launched in a SSH connection.
-# zstyle ':prezto:module:tmux:auto-start' remote 'yes'
+zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
 # Integrate with iTerm2.
-# zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+zstyle ':prezto:module:tmux:iterm' integrate 'yes'

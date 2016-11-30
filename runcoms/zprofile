@@ -44,11 +44,14 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  /usr/pkg/{bin,sbin}
   /usr/local/{bin,sbin}
   ~/IT/bin
   /usr/local/go/bin
   $path
 )
+
+export MANPATH=/usr/pkg/man:$MANPATH
 
 #
 # Less
@@ -75,6 +78,3 @@ if [[ ! -d "$TMPDIR" ]]; then
 fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
-if [[ ! -d "$TMPPREFIX" ]]; then
-  mkdir -p "$TMPPREFIX"
-fi
