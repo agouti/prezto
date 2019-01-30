@@ -35,15 +35,9 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
-<<<<<<< HEAD
-  'prompt' \
-  'git' \
-  'tmux'
-=======
   'git' \
   'tmux' \
   'prompt'
->>>>>>> bc28d2625a508c4bf23f6f1c071e02327df345eb
 
 #
 # Autosuggestions
@@ -174,23 +168,13 @@ zstyle ':prezto:module:ssh:load' identities 'id_ibook'
 
 # Set syntax highlighters.
 # By default, only the main highlighter is enabled.
-<<<<<<< HEAD
  zstyle ':prezto:module:syntax-highlighting' highlighters \
    'main' \
    'brackets' \
    'pattern' \
    'cursor' \
    'root'
-#
-=======
-zstyle ':prezto:module:syntax-highlighting' highlighters \
-  'main' \
-  'brackets' \
-  'pattern' \
-  'cursor' \
-  'root'
 
->>>>>>> bc28d2625a508c4bf23f6f1c071e02327df345eb
 # Set syntax highlighting styles.
 # zstyle ':prezto:module:syntax-highlighting' styles \
 #   'builtin' 'bg=blue' \
