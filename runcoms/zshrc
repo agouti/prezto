@@ -10,10 +10,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-<<<<<<< HEAD
-# Customize to your needs...
-<<<<<<< HEAD
-
 # tmux
 alias tma='tmux attach -d -t'
 alias tmn='tmux new -s $(basename $(pwd))'
@@ -23,31 +19,6 @@ alias ll='ls -lFh'
 # Python virtualenv configuration
 #export WORKON_HOME=$HOME/.virtualenvs
 #export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-
-function rand_wallp
-{
-    /home/agouti/IT/bin/rand_wall.sh
-}
-
-function xrandr_HP_LE1901
-{
-  xrandr --output LVDS1 --mode 1280x800 --rate 60.16
-  xrandr --output VGA1 --mode 1440x900 --rate 74.98 --left-of LVDS1
-  rand_wallp
-}
-
-function xrandr_LENOVO
-{
-  xrandr --output LVDS1 --mode 1280x800 --rate 60.16
-  xrandr --output VGA1 --mode 1680x1050 --rate 74.89 --left-of LVDS1
-  rand_wallp
-}
-
-=======
->>>>>>> 88aee30ae8bc969e73c9c59b29e7866b2f7b1b5e
-=======
-# openvz alias
-source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/alias_vzctl"
 
 ## vim mode
 bindkey -v
@@ -67,4 +38,3 @@ export ZSHTIMEOUT=1
 export GOPATH=$HOME/IT/golang
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
->>>>>>> bc28d2625a508c4bf23f6f1c071e02327df345eb
