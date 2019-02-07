@@ -1,40 +1,77 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# tmux
-alias tma='tmux attach -d -t'
-alias tmn='tmux new -s $(basename $(pwd))'
-alias tml='tmux list-sessions'
-alias ll='ls -lFh'
-
-# Python virtualenv configuration
-#export WORKON_HOME=$HOME/.virtualenvs
-#export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-
-## vim mode
-bindkey -v
-
+# vi mode with old bindkeys
 bindkey '^P' up-history
 bindkey '^N' down-history
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
-bindkey '\e.' insert-last-word
+bindkey '\e;' insert-last-word
 bindkey '^a'  beginning-of-line
 bindkey "^e"  end-of-line
 bindkey "^k"  kill-line
 
 export ZSHTIMEOUT=1
 
-export GOPATH=$HOME/IT/golang
+# coreutils (GNU version of ls, wc ...)
+# PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+# MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
+# Python
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
+# Golang
+export GOPATH=$HOME/IT/dev/golang
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+
+# GCloud completion
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# Aliases
+if [ -f "${HOME}/.aliases.zsh" ]; then
+  source "${HOME}/.aliases.zsh"
+fi
+
+# local variables
+source "${HOME}/.profile"
+
+
+function thalesAwsLoadCreads {
+  cd ~/Projects/Customers/Thales/bin
+  eval $(./aws_full_admin.sh )
+  cd $OLDPWD
+}
+
+aws-env() {
+  for var in $(env|grep AWS_| cut -d '=' -f1)
+  do
+    unset $var
+  done
+  profile=$1
+  access_key=$(aws configure get ${profile}.aws_access_key_id)
+  secret_key=$(aws configure get ${profile}.aws_secret_access_key)
+  region=$(aws configure get ${profile}.region)
+  eval $(echo export AWS_ACCESS_KEY_ID=$access_key)
+  eval $(echo export AWS_SECRET_ACCESS_KEY=$secret_key)
+  eval $(echo export AWS_DEFAULT_REGION=$region)
+}
+
+#source  ~/.senpai-zsh/senpai.zsh-theme
+
+# VisualStudioCode from term
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+
+# K8S current-context in prompt
+autoload -U colors; colors
+source /usr/local/etc/zsh-kubectl-prompt/kubectl.zsh
+RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
